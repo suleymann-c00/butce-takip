@@ -1,0 +1,78 @@
+# ===================================================================
+# Bütçe Takip (Fintech AI Budget Tracker) - Git Ignore Configuration
+# ===================================================================
+
+# --- Secrets & Environment Variables ---
+.env
+.env.local
+.env.*.local
+*.env
+web/.env
+web/.env.local
+local.properties
+/local.properties
+app/google-services.json
+
+# --- Android & Gradle ---
+.gradle/
+build/
+/build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+out/
+app/release/
+app/debug/
+
+# Android Studio / IntelliJ IDEA
+*.iml
+.idea/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+*.iws
+out/
+
+# Keystores & Signing
+*.jks
+*.keystore
+signing.properties
+
+# Kotlin
+.kotlin/
+
+# --- Web (Node & Vite) ---
+node_modules/
+web/node_modules/
+dist/
+web/dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Operating System & Editor ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+.vscode/
+*.swp
+*~
