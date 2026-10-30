@@ -147,4 +147,9 @@ class MainActivity : ComponentActivity() {
       }
     }
   }
+
+  override fun onResume() {
+    super.onResume()
+    com.example.butcetakip.data.DataRepository.syncFromFirestore()
+  }
 }

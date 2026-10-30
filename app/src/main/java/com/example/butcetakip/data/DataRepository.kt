@@ -112,6 +112,20 @@ object DataRepository : TransactionRepository {
         prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         loadFromDisk()
         processRecurringTransactions()
+
+        // Firebase Auth durumunu dinle ve kullanıcı varsa Firestore senkronizasyonunu anında başlat
+        FirebaseAuth.getInstance().addAuthStateListener { auth ->
+            if (auth.currentUser != null) {
+                syncFromFirestore()
+            } else {
+                stopSync()
+            }
+        }
+
+        // Zaten oturum açıksa hemen başlat
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            syncFromFirestore()
+        }
     }
 
     // --- JSON Serialization ---
@@ -134,21 +148,45 @@ object DataRepository : TransactionRepository {
 
     private fun jsonToTransaction(json: JSONObject): Transaction? {
         return try {
+            val catName = json.optString("category", "OTHER_EXPENSE")
+            val cat = try {
+                Category.valueOf(catName)
+            } catch (_: Exception) {
+                Category.OTHER_EXPENSE
+            }
+
+            val currStr = json.optString("currency", "TL").uppercase()
+            val curr = when (currStr) {
+                "TRY", "TL" -> Currency.TL
+                "USD" -> Currency.USD
+                "EUR" -> Currency.EUR
+                "GOLD" -> Currency.GOLD
+                else -> Currency.TL
+            }
+
+            val typeStr = json.optString("type", "").uppercase()
+            val txType = when (typeStr) {
+                "INCOME" -> TransactionType.INCOME
+                "EXPENSE" -> TransactionType.EXPENSE
+                else -> cat.transactionType()
+            }
+
             Transaction(
-                id = json.getString("id"),
-                title = json.getString("title"),
-                amount = json.getDouble("amount"),
-                category = Category.valueOf(json.getString("category")),
-                customCategoryName = if (json.isNull("customCategoryName")) null else json.getString("customCategoryName"),
-                customCategoryIcon = if (json.isNull("customCategoryIcon")) null else json.getString("customCategoryIcon"),
-                currency = Currency.valueOf(json.getString("currency")),
-                date = json.getLong("date"),
+                id = json.optString("id", UUID.randomUUID().toString()),
+                title = json.optString("title", "İşlem"),
+                amount = json.optDouble("amount", 0.0),
+                category = cat,
+                customCategoryName = if (json.isNull("customCategoryName")) null else json.optString("customCategoryName", null),
+                customCategoryIcon = if (json.isNull("customCategoryIcon")) null else json.optString("customCategoryIcon", null),
+                currency = curr,
+                date = json.optLong("date", System.currentTimeMillis()),
                 note = json.optString("note", ""),
                 isRecurring = json.optBoolean("isRecurring", false),
-                type = TransactionType.valueOf(json.getString("type"))
+                type = txType
             )
         } catch (e: Exception) {
-            null // Bozuk veriyi atla
+            e.printStackTrace()
+            null
         }
     }
 
