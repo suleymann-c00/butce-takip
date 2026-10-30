@@ -162,6 +162,6 @@ Bu proje [MIT Lisansı](LICENSE) kapsamında açık kaynak olarak lisanslanmış
 ---
 
 <div align="center">
-  Geliştirici: <b>Süleyman Çağa</b> (<a href="https://github.com/suleymann-c00">@suleymann-c00</a>)<br>
+  Geliştirici: <b>Süleyman Çağanlı</b> (<a href="https://github.com/suleymann-c00">@suleymann-c00</a>)<br>
   <i>Google DeepMind Antigravity & Gemini iş birliğiyle üretilmiştir.</i>
 </div>
