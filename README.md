@@ -21,7 +21,7 @@
 ## 🤖 Yapay Zekâ Destekli Geliştirme (AI-Assisted Development)
 
 > [!NOTE]
-> Bu proje, **Süleyman Çağa ([@suleymann-c00](https://github.com/suleymann-c00))** tarafından **Google DeepMind Antigravity** ve **Google Gemini** yapay zekâ modelleri ile **Human + AI Pair Programming (İnsan-Yapay Zekâ Eşli Programlama)** metodolojisi kullanılarak geliştirilmiştir.
+> Bu proje, **Süleyman Çağanlı ([@suleymann-c00](https://github.com/suleymann-c00))** tarafından **Google DeepMind Antigravity** ve **Google Gemini** yapay zekâ modelleri ile **Human + AI Pair Programming (İnsan-Yapay Zekâ Eşli Programlama)** metodolojisi kullanılarak geliştirilmiştir.
 
 ### AI Co-Development ile Neler Gerçekleştirildi?
 - **Çok Modelli Dayanıklılık Mimarisi (Model Fallback Strategy):** Gemini API'nin rate limit ve yoğunluk durumlarına karşı otomatik model rotasyonu (`gemini-3.6-flash` → `gemini-3.7-flash` → `gemini-3.5-flash-lite`).
