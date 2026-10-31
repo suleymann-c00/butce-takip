@@ -64,6 +64,55 @@
 
 ---
 
+## 📸 Ekran Görüntüleri (Screenshots)
+
+### 💻 Web Gösterge Paneli & AI Asistanı
+<div align="center">
+  <p><b>Web Ana Sayfası (Koyu Tema & Çoklu Varlık Kartları)</b></p>
+  <img src="screenshots/web-dashboard.png" width="900" alt="Web Ana Panel" />
+  <br><br>
+  <p><b>Doğal Dil Finansal Ayrıştırıcı (Tek Cümleyle 5 İşlemin Ayrıştırılması)</b></p>
+  <img src="screenshots/web-ai-assistant.png" width="900" alt="Web AI Chat" />
+</div>
+
+<details>
+<summary><b>Giriş Ekranını Görüntüle</b></summary>
+<br>
+<div align="center">
+  <img src="screenshots/web-login.png" width="700" alt="Web Giriş Ekranı" />
+</div>
+</details>
+
+<br>
+
+### 📱 Android Mobil Uygulaması (Jetpack Compose)
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>Açılış Animasyonu</b></td>
+      <td align="center"><b>Ana Panel (Dashboard)</b></td>
+      <td align="center"><b>İşlem Ekleme Formu</b></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/mobile-splash.jpg" width="240" alt="Açılış Ekranı" /></td>
+      <td><img src="screenshots/mobile-dashboard.jpg" width="240" alt="Ana Sayfa" /></td>
+      <td><img src="screenshots/mobile-add.jpg" width="240" alt="İşlem Ekle" /></td>
+    </tr>
+    <tr>
+      <td align="center"><b>Gelir / Gider Dağılımı</b></td>
+      <td align="center"><b>Varlık Trend Çizgisi</b></td>
+      <td align="center"><b>Gider Trend Analizi</b></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/mobile-breakdown.jpg" width="240" alt="Gelir Gider Dağılımı" /></td>
+      <td><img src="screenshots/mobile-stats-balance.jpg" width="240" alt="Varlık Trendi" /></td>
+      <td><img src="screenshots/mobile-stats-expense.jpg" width="240" alt="Gider Trendi" /></td>
+    </tr>
+  </table>
+</div>
+
+---
+
 ## 🏛️ Mimari Şema
 
 ```mermaid
